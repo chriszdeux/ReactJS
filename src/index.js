@@ -6,6 +6,8 @@ import ReactDOM from 'react-dom';
 // import { FormWithCustomHook } from './02-useEffect/FormWithCustomHook';
 // import { MultipleCustomHooks } from './03-examples/MultipleCustomHooks';
 // import { FocusScreen } from './04-useRef/FocusScreen';
-import { RealExampleRef } from './04-useRef/RealExampleRef';
+// import { RealExampleRef } from './04-useRef/RealExampleRef';
+// import { Memorize } from './06-useMemo/Memorize';
+import { MemoHook } from './06-useMemo/MemoHook';
 
-ReactDOM.render(< RealExampleRef />, document.getElementById('root'));
+ReactDOM.render(< MemoHook />, document.getElementById('root'));
