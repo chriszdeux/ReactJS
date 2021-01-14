@@ -9,6 +9,8 @@ import ReactDOM from 'react-dom';
 // import { RealExampleRef } from './04-useRef/RealExampleRef';
 // import { Memorize } from './06-useMemo/Memorize';
 // import { MemoHook } from './06-useMemo/MemoHook';
-import { CallbackHook } from './06-useMemo/CallbackHook';
+// import { CallbackHook } from './06-useMemo/CallbackHook';
+// import { Padre } from './07-tarea-memo/Padre';
+import { Father } from './HomeWorkMemo/Father';
 
-ReactDOM.render(< CallbackHook />, document.getElementById('root'));
+ReactDOM.render(< Father />, document.getElementById('root'));
