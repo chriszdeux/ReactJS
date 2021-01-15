@@ -1,0 +1,45 @@
+body {
+  margin: 70px;
+}
+
+ul, li, ol {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+}
+
+ul {
+  /* display: flex;
+  justify-content: space-between;
+  width: 70%; */
+  width: 70%;
+  
+}
+li {
+  display: flex;
+  justify-content: space-between;
+  /* width: 60%; */
+  align-items: center;
+  margin-right: 20px;
+}
+
+li p {
+  text-align: left;
+  /* margin-right: 15px; */
+}
+li button {
+  justify-self: flex-end;
+}
+
+.add {
+
+  /* width: 30%; */
+}
+
+button {
+  width: auto;
+}

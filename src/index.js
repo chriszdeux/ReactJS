@@ -11,6 +11,7 @@ import ReactDOM from 'react-dom';
 // import { MemoHook } from './06-useMemo/MemoHook';
 // import { CallbackHook } from './06-useMemo/CallbackHook';
 // import { Padre } from './07-tarea-memo/Padre';
-import { Father } from './HomeWorkMemo/Father';
+// import { Father } from './HomeWorkMemo/Father';
+import { TodoApp } from './08-useReducer/TodoApp';
 
-ReactDOM.render(< Father />, document.getElementById('root'));
+ReactDOM.render(< TodoApp />, document.getElementById('root'));
