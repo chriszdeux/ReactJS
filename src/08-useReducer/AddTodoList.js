@@ -23,19 +23,19 @@ export const AddTodoList = ( { handleAddTodo } ) => {
   }
   return (
     <div className="add">
-      <h2>Add Todo</h2>
-      <form onSubmit={ handleSubmit }>
-        <input 
-          type="text"
-          name="description"
-          placeholder="add"
-          autoComplete="off"
-          className="form-control"
-          value={ description }
-          onChange={ handleInputChange }
-        />
-      <button type="submit" className="btn btn-outline-primary mt-2 btn-block">add</button>
-      </form>
-    </div>
+          <h2>Add Todo</h2>
+          <form onSubmit={ handleSubmit }>
+            <input 
+              type="text"
+              name="description"
+              placeholder="add"
+              autoComplete="off"
+              className="form-control"
+              value={ description }
+              onChange={ handleInputChange }
+            />
+          <button type="submit" className="btn btn-outline-primary mt-2 btn-block">add</button>
+          </form>
+        </div>
   )
 }
