@@ -1,8 +1,10 @@
 import React, { useEffect, useReducer } from 'react';
-import { useForm } from '../hooks/useForm';
-import './style.css';
+
+import { AddTodoList } from './AddTodoList';
+import { TodoList } from './TodoList';
 import { todoReducer } from './todoReducer';
 
+import './style.css';
 
 // const initialState = [
 //   {
@@ -13,6 +15,7 @@ import { todoReducer } from './todoReducer';
   
 // ];
 
+//to get in localstorage all my tasks
 const init = () => {
   return JSON.parse( localStorage.getItem('todos')) || []
 }
@@ -20,38 +23,18 @@ const init = () => {
 export const TodoApp = () => {
   
   const [todos, dispatch] = useReducer(todoReducer, [], init);
-  const [{ description }, handleInputChange, reset] = useForm({ description: '' })
   
+  //to set in localstorage my new task
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos))
   }, [ todos ])
 
 
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // console.log('new task');
-    
-    if (description.trim().length < 2) {
-      return;
-    }
-    
-
-    const newTodo = {
-      id: new Date().getTime(),
-      description: description,
-      done: false
-    }
-
-    const action = {
+  const handleAddTodo = ( newTodo ) => {
+    dispatch({
       type: 'add',
       payload: newTodo
-    }
-
-    dispatch(action);
-    // debugger
-    reset();
-
+    })
   }
 
   const handleDelete = (todoId) => {
@@ -63,11 +46,18 @@ export const TodoApp = () => {
     }
 
     dispatch(actionDelete)
-    // debugger
-  }
-  console.log(description)
 
-  // debugger
+  }
+
+  const handleToggle = ( todoId ) => {
+    const actionToggle = {
+      type: 'toggle',
+      payload: todoId
+    }
+
+    dispatch(actionToggle);
+  }
+
 
   return (
     <>
@@ -75,33 +65,16 @@ export const TodoApp = () => {
       <hr/>
       <div className="container">
         
-          <ul>
-            {
-              todos.map((todo, i) => (
-                <li key={todo.id}>
-                  <p>{ i + 1 }. {todo.description}</p>
-                  <button className="btn btn-danger" onClick={() => handleDelete(todo.id)}>delete</button>
-                </li>
-              ))
-            }
-          </ul>
+        < TodoList 
+          todos={ todos } 
+          handleDelete={ handleDelete }
+          handleToggle={ handleToggle }
+          />
         
 
-        <div className="add">
-          <h2>Add Todo</h2>
-          <form onSubmit={ handleSubmit }>
-            <input 
-              type="text"
-              name="description"
-              placeholder="add"
-              autoComplete="off"
-              className="form-control"
-              value={ description }
-              onChange={ handleInputChange }
-            />
-          <button type="submit" className="btn btn-outline-primary mt-2 btn-block">add</button>
-          </form>
-        </div>
+        <AddTodoList 
+          handleAddTodo={ handleAddTodo }
+        /> 
       </div>
     </>
   )
