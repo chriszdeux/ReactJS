@@ -29,6 +29,7 @@ li {
 
 li p {
   text-align: left;
+  cursor: pointer;
   /* margin-right: 15px; */
 }
 li button {
@@ -42,4 +43,12 @@ li button {
 
 button {
   width: auto;
+}
+
+.complete {
+  text-decoration: line-through;
+}
+
+.pending {
+  color: green;
 }
